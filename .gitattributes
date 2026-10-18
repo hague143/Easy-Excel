@@ -1,0 +1,3 @@
+downloads/*.html binary
+docs/PRODUCT_SPEC.md text eol=lf
+*.zip binary

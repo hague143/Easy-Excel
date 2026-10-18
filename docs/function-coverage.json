@@ -1,0 +1,5907 @@
+{
+  "summary": {
+    "generatedAt": "2026-10-17T14:45:23.181Z",
+    "requiredFunctions": 261,
+    "implementedRequired": 261,
+    "passingRequiredExamples": 261,
+    "workflows": 40,
+    "totalRegistered": 301,
+    "note": "Example checks compare against explicitly stated expected answers. The automated test suites also cover edge cases and invalid inputs. Passing examples establish exercised behavior, not exhaustive Excel compatibility. External cube functions are tested against a clearly labeled demonstration model."
+  },
+  "functions": [
+    {
+      "name": "SUM",
+      "required": true,
+      "friendlyName": "Add up a column",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "AVERAGE",
+      "required": true,
+      "friendlyName": "Find the average",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MIN",
+      "required": true,
+      "friendlyName": "Find the lowest value",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MAX",
+      "required": true,
+      "friendlyName": "Find the highest value",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COUNT",
+      "required": true,
+      "friendlyName": "Count numeric cells",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COUNTA",
+      "required": true,
+      "friendlyName": "Count nonblank cells",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COUNTBLANK",
+      "required": true,
+      "friendlyName": "Count blank and empty cells",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PRODUCT",
+      "required": true,
+      "friendlyName": "Multiply values",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Range inputs ignore text and Boolean cells; null represents a blank and empty text remains distinct."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ABS",
+      "required": true,
+      "friendlyName": "Absolute value",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ROUND",
+      "required": true,
+      "friendlyName": "Round to decimal places",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ROUNDUP",
+      "required": true,
+      "friendlyName": "Round away from zero",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ROUNDDOWN",
+      "required": true,
+      "friendlyName": "Round toward zero",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "INT",
+      "required": true,
+      "friendlyName": "Round down to an integer",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MOD",
+      "required": true,
+      "friendlyName": "Remainder after division",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "QUOTIENT",
+      "required": true,
+      "friendlyName": "Integer part of division",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SUBTOTAL",
+      "required": true,
+      "friendlyName": "Summarize visible rows",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Filtered rows and nested subtotal/aggregate rows are excluded. Hidden rows are excluded by function numbers 101–111. Worksheet hiddenRows/filteredRows use zero-based indexes; startRow is one-based, and column identifies the metadata column."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "AGGREGATE",
+      "required": true,
+      "friendlyName": "Advanced visible-row summary",
+      "categories": [
+        "Basic mathematics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Requires a reference-style range for worksheet visibility rules. Function 14–19 k is rank (LARGE/SMALL), probability (percentile), or integer quartile 0–4 (inclusive)/1–3 (exclusive)."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IF",
+      "required": true,
+      "friendlyName": "Choose a result from a condition",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IFS",
+      "required": true,
+      "friendlyName": "Choose the first matching condition",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "AND",
+      "required": true,
+      "friendlyName": "Require all conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "OR",
+      "required": true,
+      "friendlyName": "Require any condition",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NOT",
+      "required": true,
+      "friendlyName": "Reverse a condition",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SWITCH",
+      "required": true,
+      "friendlyName": "Match a value to named choices",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IFERROR",
+      "required": true,
+      "friendlyName": "Replace a calculation error",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IFNA",
+      "required": true,
+      "friendlyName": "Replace a missing-match error",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SUMIF",
+      "required": true,
+      "friendlyName": "Total values matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SUMIFS",
+      "required": true,
+      "friendlyName": "Total values matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COUNTIF",
+      "required": true,
+      "friendlyName": "Count values matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COUNTIFS",
+      "required": true,
+      "friendlyName": "Count values matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "AVERAGEIF",
+      "required": true,
+      "friendlyName": "Average values matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "AVERAGEIFS",
+      "required": true,
+      "friendlyName": "Average values matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MAXIFS",
+      "required": true,
+      "friendlyName": "Highest value matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MINIFS",
+      "required": true,
+      "friendlyName": "Lowest value matching conditions",
+      "categories": [
+        "Logic and conditional"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Criteria support =, <>, <, >, <=, >= and case-insensitive * / ? wildcards with ~ escaping. Multiple conditions use AND. All selected ranges must have matching dimensions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "XLOOKUP",
+      "required": true,
+      "friendlyName": "Find a matching record",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > XLOOKUP"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Text matching is case-insensitive. Duplicate policy all is a SheetPilot extension. Binary modes validate sorting before calculating."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "VLOOKUP",
+      "required": true,
+      "friendlyName": "Find in a table column",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > VLOOKUP"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Approximate mode explicitly rejects unsorted lookup keys instead of returning unreliable results."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "HLOOKUP",
+      "required": true,
+      "friendlyName": "Find in a table row",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > HLOOKUP"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Approximate mode explicitly rejects unsorted lookup keys instead of returning unreliable results."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LOOKUP",
+      "required": true,
+      "friendlyName": "Find nearest value in a sorted list",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > LOOKUP"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Vector form; select an explicit return vector. Sorted input is required and checked."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "INDEX",
+      "required": true,
+      "friendlyName": "Return a value at a position",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > INDEX"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MATCH",
+      "required": true,
+      "friendlyName": "Find a position in a list",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > MATCH"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Approximate matching checks ascending or descending order."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "XMATCH",
+      "required": true,
+      "friendlyName": "Find a position with flexible matching",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > XMATCH"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CHOOSE",
+      "required": true,
+      "friendlyName": "Choose from a list",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > CHOOSE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "INDIRECT",
+      "required": true,
+      "friendlyName": "Read a worksheet reference",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > INDIRECT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Worksheet row 1 contains column headers; data starts at row 2. No named ranges or external workbook links."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ADDRESS",
+      "required": true,
+      "friendlyName": "Create a worksheet address",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > ADDRESS"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ROW",
+      "required": true,
+      "friendlyName": "Get worksheet row numbers",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > ROW"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Worksheet row 1 contains column headers; data starts at row 2."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COLUMN",
+      "required": true,
+      "friendlyName": "Get worksheet column numbers",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > COLUMN"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Worksheet row 1 contains column headers; data starts at row 2."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ROWS",
+      "required": true,
+      "friendlyName": "Count rows",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > ROWS"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COLUMNS",
+      "required": true,
+      "friendlyName": "Count columns",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > COLUMNS"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "OFFSET",
+      "required": true,
+      "friendlyName": "Read a shifted worksheet range",
+      "categories": [
+        "Lookup & references"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > OFFSET"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Worksheet row 1 contains column headers; data starts at row 2. Empty cells resolve to blank, not zero."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LEFT",
+      "required": true,
+      "friendlyName": "First characters",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RIGHT",
+      "required": true,
+      "friendlyName": "Last characters",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MID",
+      "required": true,
+      "friendlyName": "Extract characters from a position",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LEN",
+      "required": true,
+      "friendlyName": "Count characters",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TRIM",
+      "required": true,
+      "friendlyName": "Remove extra spaces",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "TRIM removes ASCII spaces; nonbreaking spaces remain, as in Excel."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CLEAN",
+      "required": true,
+      "friendlyName": "Remove control characters",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "UPPER",
+      "required": true,
+      "friendlyName": "Convert to uppercase",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LOWER",
+      "required": true,
+      "friendlyName": "Convert to lowercase",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PROPER",
+      "required": true,
+      "friendlyName": "Capitalize words",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CONCAT",
+      "required": true,
+      "friendlyName": "Join text values",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CONCATENATE",
+      "required": true,
+      "friendlyName": "Join text values",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TEXTJOIN",
+      "required": true,
+      "friendlyName": "Join values with a separator",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TEXT",
+      "required": true,
+      "friendlyName": "Format a value as text",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Supports common decimal, percentage, currency, scientific and calendar/time masks with up to three sections. Fraction, spacing-placeholder, color, conditional, locale and elapsed-time masks return an explicit error."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "VALUE",
+      "required": true,
+      "friendlyName": "Convert text to a number",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Uses invariant decimal dot/thousands comma; recognizes common currency symbols, ISO dates and clock times. Ambiguous locale date strings must be normalized during import."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SUBSTITUTE",
+      "required": true,
+      "friendlyName": "Replace matching text",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "REPLACE",
+      "required": true,
+      "friendlyName": "Replace characters by position",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FIND",
+      "required": true,
+      "friendlyName": "Find case-sensitive text position",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SEARCH",
+      "required": true,
+      "friendlyName": "Find text position ignoring case",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "EXACT",
+      "required": true,
+      "friendlyName": "Compare text with case sensitivity",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TEXTSPLIT",
+      "required": true,
+      "friendlyName": "Split text into rows and columns",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Delimiter fields accept literal strings, not regular expressions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TEXTBEFORE",
+      "required": true,
+      "friendlyName": "Text before a separator",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TEXTAFTER",
+      "required": true,
+      "friendlyName": "Text after a separator",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "REPT",
+      "required": true,
+      "friendlyName": "Repeat text",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CHAR",
+      "required": true,
+      "friendlyName": "Character from Windows code",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Uses Windows-1252 (Excel Windows); Mac legacy code-page behavior can differ."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CODE",
+      "required": true,
+      "friendlyName": "Windows code of first character",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Uses Windows-1252; unrepresentable characters map to the Windows replacement character ?."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "UNICHAR",
+      "required": true,
+      "friendlyName": "Character from Unicode code point",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "UNICODE",
+      "required": true,
+      "friendlyName": "Unicode code point of first character",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NUMBERVALUE",
+      "required": true,
+      "friendlyName": "Convert regional number text",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FIXED",
+      "required": true,
+      "friendlyName": "Format a fixed-decimal number",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "T",
+      "required": true,
+      "friendlyName": "Return text values only",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "HYPERLINK",
+      "required": true,
+      "friendlyName": "Create a safe clickable link",
+      "categories": [
+        "Text and cleaning"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Returns a link object for safe rendering and export. Executable/file URLs are rejected."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TODAY",
+      "required": true,
+      "friendlyName": "Current date",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NOW",
+      "required": true,
+      "friendlyName": "Current date and time",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DATE",
+      "required": true,
+      "friendlyName": "Build a date from year, month and day",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TIME",
+      "required": true,
+      "friendlyName": "Build a time from hours, minutes and seconds",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DAY",
+      "required": true,
+      "friendlyName": "Day of a date",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MONTH",
+      "required": true,
+      "friendlyName": "Month of a date",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "YEAR",
+      "required": true,
+      "friendlyName": "Year of a date",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "HOUR",
+      "required": true,
+      "friendlyName": "Hour of a time",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MINUTE",
+      "required": true,
+      "friendlyName": "Minute of a time",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SECOND",
+      "required": true,
+      "friendlyName": "Second of a time",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DAYS",
+      "required": true,
+      "friendlyName": "Days between two dates",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DATEDIF",
+      "required": true,
+      "friendlyName": "Complete years, months or days of service",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC.",
+        "MD follows Excel’s legacy previous-month subtraction and can produce negative results for month-end dates; D is recommended for total elapsed days."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "YEARFRAC",
+      "required": true,
+      "friendlyName": "Fraction of a year between dates",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC.",
+        "US 30/360 applies NASD end-of-February adjustments; Excel’s documented legacy YEARFRAC end-of-February bug is corrected."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WEEKDAY",
+      "required": true,
+      "friendlyName": "Day of the week",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WEEKNUM",
+      "required": true,
+      "friendlyName": "Calendar week number",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "EDATE",
+      "required": true,
+      "friendlyName": "Move a date by calendar months",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "EOMONTH",
+      "required": true,
+      "friendlyName": "Last day of a shifted month",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NETWORKDAYS",
+      "required": true,
+      "friendlyName": "Working days between dates",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC.",
+        "Includes both endpoints; a reversed range returns a negative count. Weekend codes follow Excel conventions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NETWORKDAYS.INTL",
+      "required": true,
+      "friendlyName": "Working days between dates",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC.",
+        "Includes both endpoints; a reversed range returns a negative count. Weekend codes follow Excel conventions."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WORKDAY",
+      "required": true,
+      "friendlyName": "Date after a number of working days",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WORKDAY.INTL",
+      "required": true,
+      "friendlyName": "Date after a number of working days",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DATEVALUE",
+      "required": true,
+      "friendlyName": "Convert ISO date text to a date",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TIMEVALUE",
+      "required": true,
+      "friendlyName": "Convert clock text to a time",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DAYS360",
+      "required": true,
+      "friendlyName": "Day difference using a 360-day year",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISOWEEKNUM",
+      "required": true,
+      "friendlyName": "ISO week number",
+      "categories": [
+        "Dates and times"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Dates are Excel 1900-system serial numbers. Date text must use ISO YYYY-MM-DD; no locale guessing. Serial 60 represents Excel’s fictitious 1900-02-29. Time and volatile-clock operations use UTC."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MEDIAN",
+      "required": true,
+      "friendlyName": "Middle value",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MODE.SNGL",
+      "required": true,
+      "friendlyName": "Most common value",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MODE.MULT",
+      "required": true,
+      "friendlyName": "All most common values",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LARGE",
+      "required": true,
+      "friendlyName": "Nth largest value",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SMALL",
+      "required": true,
+      "friendlyName": "Nth smallest value",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RANK.EQ",
+      "required": true,
+      "friendlyName": "Rank with shared ties",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RANK.AVG",
+      "required": true,
+      "friendlyName": "Rank with averaged ties",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PERCENTILE.INC",
+      "required": true,
+      "friendlyName": "Percentile including endpoints",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "QUARTILE.INC",
+      "required": true,
+      "friendlyName": "Quartile including endpoints",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "STDEV.S",
+      "required": true,
+      "friendlyName": "Sample standard deviation",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "STDEV.P",
+      "required": true,
+      "friendlyName": "Population standard deviation",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "VAR.S",
+      "required": true,
+      "friendlyName": "Sample variance",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "VAR.P",
+      "required": true,
+      "friendlyName": "Population variance",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CORREL",
+      "required": true,
+      "friendlyName": "Correlation coefficient",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FREQUENCY",
+      "required": true,
+      "friendlyName": "Frequency by upper bounds",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SUMPRODUCT",
+      "required": true,
+      "friendlyName": "Sum of paired products",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FORECAST.LINEAR",
+      "required": true,
+      "friendlyName": "Predict from a linear trend",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TREND",
+      "required": true,
+      "friendlyName": "Predict a linear trend",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LINEST",
+      "required": true,
+      "friendlyName": "Linear regression coefficients",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "T.TEST",
+      "required": true,
+      "friendlyName": "Compare two means (t test)",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CHISQ.TEST",
+      "required": true,
+      "friendlyName": "Compare observed and expected counts",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "GEOMEAN",
+      "required": true,
+      "friendlyName": "Geometric mean",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "HARMEAN",
+      "required": true,
+      "friendlyName": "Harmonic mean",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TRIMMEAN",
+      "required": true,
+      "friendlyName": "Average after trimming extremes",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PERCENTRANK.INC",
+      "required": true,
+      "friendlyName": "Relative percentile rank",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COVARIANCE.S",
+      "required": true,
+      "friendlyName": "Sample covariance",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COVARIANCE.P",
+      "required": true,
+      "friendlyName": "Population covariance",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SLOPE",
+      "required": true,
+      "friendlyName": "Regression slope",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "INTERCEPT",
+      "required": true,
+      "friendlyName": "Regression intercept",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RSQ",
+      "required": true,
+      "friendlyName": "Regression R squared",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "STEYX",
+      "required": true,
+      "friendlyName": "Regression standard error",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "STANDARDIZE",
+      "required": true,
+      "friendlyName": "Convert to a z score",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NORM.DIST",
+      "required": true,
+      "friendlyName": "Normal probability or density",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NORM.INV",
+      "required": true,
+      "friendlyName": "Normal distribution quantile",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "BINOM.DIST",
+      "required": true,
+      "friendlyName": "Binomial probability",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "POISSON.DIST",
+      "required": true,
+      "friendlyName": "Poisson count probability",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CONFIDENCE.T",
+      "required": true,
+      "friendlyName": "Confidence interval margin (t)",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "F.TEST",
+      "required": true,
+      "friendlyName": "Compare two variances",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "Z.TEST",
+      "required": true,
+      "friendlyName": "Test a population mean",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SKEW",
+      "required": true,
+      "friendlyName": "Sample skewness",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "KURT",
+      "required": true,
+      "friendlyName": "Sample excess kurtosis",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "GROWTH",
+      "required": true,
+      "friendlyName": "Predict exponential growth",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LOGEST",
+      "required": true,
+      "friendlyName": "Exponential regression coefficients",
+      "categories": [
+        "Statistics"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PMT",
+      "required": true,
+      "friendlyName": "Loan installment",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — PMT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IPMT",
+      "required": true,
+      "friendlyName": "Interest portion of a payment",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — IPMT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PPMT",
+      "required": true,
+      "friendlyName": "Principal portion of a payment",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — PPMT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PV",
+      "required": true,
+      "friendlyName": "Present value",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — PV"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FV",
+      "required": true,
+      "friendlyName": "Future investment value",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — FV"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RATE",
+      "required": true,
+      "friendlyName": "Interest rate per period",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — RATE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NPER",
+      "required": true,
+      "friendlyName": "Number of payment periods",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — NPER"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NPV",
+      "required": true,
+      "friendlyName": "Net present value",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — NPV"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "XNPV",
+      "required": true,
+      "friendlyName": "Net present value with dates",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — XNPV"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IRR",
+      "required": true,
+      "friendlyName": "Investment internal rate of return",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — IRR"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "XIRR",
+      "required": true,
+      "friendlyName": "Annual return with irregular dates",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — XIRR"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SLN",
+      "required": true,
+      "friendlyName": "Straight-line depreciation",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — SLN"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DB",
+      "required": true,
+      "friendlyName": "Fixed declining balance depreciation",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — DB"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DDB",
+      "required": true,
+      "friendlyName": "Double declining balance depreciation",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — DDB"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CUMIPMT",
+      "required": true,
+      "friendlyName": "Total loan interest over a period range",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — CUMIPMT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CUMPRINC",
+      "required": true,
+      "friendlyName": "Total principal repaid over a period range",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — CUMPRINC"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MIRR",
+      "required": true,
+      "friendlyName": "Modified internal rate of return",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — MIRR"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RRI",
+      "required": true,
+      "friendlyName": "Equivalent investment growth rate",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — RRI"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "EFFECT",
+      "required": true,
+      "friendlyName": "Effective annual interest rate",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — EFFECT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "NOMINAL",
+      "required": true,
+      "friendlyName": "Nominal annual interest rate",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — NOMINAL"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PDURATION",
+      "required": true,
+      "friendlyName": "Time required for investment growth",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — PDURATION"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SYD",
+      "required": true,
+      "friendlyName": "Sum-of-years depreciation",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — SYD"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "VDB",
+      "required": true,
+      "friendlyName": "Variable declining balance depreciation",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — VDB"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PRICE",
+      "required": true,
+      "friendlyName": "Coupon bond price",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — PRICE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "YIELD",
+      "required": true,
+      "friendlyName": "Coupon bond yield",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — YIELD"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DURATION",
+      "required": true,
+      "friendlyName": "Macaulay bond duration",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — DURATION"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MDURATION",
+      "required": true,
+      "friendlyName": "Modified bond duration",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — MDURATION"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ACCRINT",
+      "required": true,
+      "friendlyName": "Accrued coupon interest",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — ACCRINT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DISC",
+      "required": true,
+      "friendlyName": "Security discount rate",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — DISC"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "INTRATE",
+      "required": true,
+      "friendlyName": "Fully invested security interest rate",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — INTRATE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TBILLPRICE",
+      "required": true,
+      "friendlyName": "Treasury bill price",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — TBILLPRICE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TBILLYIELD",
+      "required": true,
+      "friendlyName": "Treasury bill yield",
+      "categories": [
+        "Finance and accounting"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/finance.test.ts — TBILLYIELD"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel financial cash-flow sign convention: money paid is negative; money received is positive.",
+        "Rates are decimal fractions. Security dates use the Excel 1900 calendar; ISO dates avoid locale ambiguity.",
+        "Cash-flow ranges ignore text, booleans, and blanks; explicit numeric zero is retained. Dated cash flows require an aligned date for every numeric payment."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CEILING.MATH",
+      "required": true,
+      "friendlyName": "Round up to a multiple",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FLOOR.MATH",
+      "required": true,
+      "friendlyName": "Round down to a multiple",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MROUND",
+      "required": true,
+      "friendlyName": "Round to the nearest multiple",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CONVERT",
+      "required": true,
+      "friendlyName": "Convert measurement units",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SQRT",
+      "required": true,
+      "friendlyName": "Square root",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "POWER",
+      "required": true,
+      "friendlyName": "Raise a number to a power",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "EXP",
+      "required": true,
+      "friendlyName": "Exponential",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LN",
+      "required": true,
+      "friendlyName": "Natural logarithm",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LOG",
+      "required": true,
+      "friendlyName": "Logarithm in a selected base",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SIN",
+      "required": true,
+      "friendlyName": "Sine in radians",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COS",
+      "required": true,
+      "friendlyName": "Cosine in radians",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TAN",
+      "required": true,
+      "friendlyName": "Tangent in radians",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TRUNC",
+      "required": true,
+      "friendlyName": "Truncate decimal places",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SIGN",
+      "required": true,
+      "friendlyName": "Sign of a number",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "GCD",
+      "required": true,
+      "friendlyName": "Greatest common divisor",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LCM",
+      "required": true,
+      "friendlyName": "Least common multiple",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FACT",
+      "required": true,
+      "friendlyName": "Factorial",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COMBIN",
+      "required": true,
+      "friendlyName": "Count combinations",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "PERMUT",
+      "required": true,
+      "friendlyName": "Count ordered permutations",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SUMSQ",
+      "required": true,
+      "friendlyName": "Sum of squares",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RAND",
+      "required": true,
+      "friendlyName": "Random decimal",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RANDBETWEEN",
+      "required": true,
+      "friendlyName": "Random whole number",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "RANDARRAY",
+      "required": true,
+      "friendlyName": "Random number table",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MMULT",
+      "required": true,
+      "friendlyName": "Multiply matrices",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MINVERSE",
+      "required": true,
+      "friendlyName": "Invert a square matrix",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MDETERM",
+      "required": true,
+      "friendlyName": "Matrix determinant",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "COMPLEX",
+      "required": true,
+      "friendlyName": "Create a complex number",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IMSUM",
+      "required": true,
+      "friendlyName": "Add complex numbers",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "IMPRODUCT",
+      "required": true,
+      "friendlyName": "Multiply complex numbers",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DEC2BIN",
+      "required": true,
+      "friendlyName": "Decimal to binary",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "BIN2DEC",
+      "required": true,
+      "friendlyName": "Binary to decimal",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DEC2HEX",
+      "required": true,
+      "friendlyName": "Decimal to hexadecimal",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "HEX2DEC",
+      "required": true,
+      "friendlyName": "Hexadecimal to decimal",
+      "categories": [
+        "Engineering"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/numeric.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FILTER",
+      "required": true,
+      "friendlyName": "Keep matching rows or columns",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > FILTER"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SORT",
+      "required": true,
+      "friendlyName": "Sort a range",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > SORT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SORTBY",
+      "required": true,
+      "friendlyName": "Sort by a related column",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > SORTBY"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "UNIQUE",
+      "required": true,
+      "friendlyName": "Remove duplicate rows",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > UNIQUE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SEQUENCE",
+      "required": true,
+      "friendlyName": "Generate a number sequence",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > SEQUENCE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TRANSPOSE",
+      "required": true,
+      "friendlyName": "Swap rows and columns",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > TRANSPOSE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TAKE",
+      "required": true,
+      "friendlyName": "Keep rows or columns from an edge",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > TAKE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DROP",
+      "required": true,
+      "friendlyName": "Remove rows or columns from an edge",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DROP"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CHOOSECOLS",
+      "required": true,
+      "friendlyName": "Select and rearrange columns",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > CHOOSECOLS"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CHOOSEROWS",
+      "required": true,
+      "friendlyName": "Select and rearrange rows",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > CHOOSEROWS"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "VSTACK",
+      "required": true,
+      "friendlyName": "Stack ranges vertically",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > VSTACK"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "HSTACK",
+      "required": true,
+      "friendlyName": "Join ranges horizontally",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > HSTACK"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TOCOL",
+      "required": true,
+      "friendlyName": "Flatten into one column",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > TOCOL"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Blank cells are null; empty text strings are preserved. Unignored blanks become zero as in Excel."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "TOROW",
+      "required": true,
+      "friendlyName": "Flatten into one row",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > TOROW"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Blank cells are null; empty text strings are preserved. Unignored blanks become zero as in Excel."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "EXPAND",
+      "required": true,
+      "friendlyName": "Expand a range with padding",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > EXPAND"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WRAPROWS",
+      "required": true,
+      "friendlyName": "Wrap a list into rows",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > WRAPROWS"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WRAPCOLS",
+      "required": true,
+      "friendlyName": "Wrap a list into columns",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > WRAPCOLS"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Deterministic local calculation using the selected range. Positions are 1-based; array results are exported as values."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LET",
+      "required": true,
+      "friendlyName": "Name intermediate calculation values",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > LET"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "LAMBDA",
+      "required": true,
+      "friendlyName": "Define and run a reusable calculation",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > LAMBDA"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MAP",
+      "required": true,
+      "friendlyName": "Calculate each cell with a reusable operation",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > MAP"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "BYROW",
+      "required": true,
+      "friendlyName": "Calculate a result for every row",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > BYROW"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "BYCOL",
+      "required": true,
+      "friendlyName": "Calculate a result for every column",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > BYCOL"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "REDUCE",
+      "required": true,
+      "friendlyName": "Combine values into an accumulated result",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > REDUCE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "SCAN",
+      "required": true,
+      "friendlyName": "Show running accumulated values",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > SCAN"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "MAKEARRAY",
+      "required": true,
+      "friendlyName": "Generate a table from row and column positions",
+      "categories": [
+        "Dynamic arrays"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > MAKEARRAY"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a safe operation tree rather than JavaScript or formula text. Recursive lambdas and nested spilled arrays are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISBLANK",
+      "required": true,
+      "friendlyName": "Is a cell truly blank",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Input is inspected without coercion. A blank cell is null; empty text is not blank."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISNUMBER",
+      "required": true,
+      "friendlyName": "Is a cell numeric",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Input is inspected without coercion. A blank cell is null; empty text is not blank."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISTEXT",
+      "required": true,
+      "friendlyName": "Is a cell text",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Input is inspected without coercion. A blank cell is null; empty text is not blank."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISERROR",
+      "required": true,
+      "friendlyName": "Does a cell contain an error",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Input is inspected without coercion. A blank cell is null; empty text is not blank."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISNA",
+      "required": true,
+      "friendlyName": "Is a cell a missing-match error",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Input is inspected without coercion. A blank cell is null; empty text is not blank."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISLOGICAL",
+      "required": true,
+      "friendlyName": "Is a cell Boolean",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Input is inspected without coercion. A blank cell is null; empty text is not blank."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISFORMULA",
+      "required": true,
+      "friendlyName": "Does a cell retain an Excel formula",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Uses retained imported formula metadata. Plain imported values have no formula metadata."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISEVEN",
+      "required": true,
+      "friendlyName": "Is a number even",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Fractional parts are truncated before testing parity."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ISODD",
+      "required": true,
+      "friendlyName": "Is a number odd",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Fractional parts are truncated before testing parity."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "ERROR.TYPE",
+      "required": true,
+      "friendlyName": "Identify a cell error code",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "FORMULATEXT",
+      "required": true,
+      "friendlyName": "Show a cell’s retained formula",
+      "categories": [
+        "Validation"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/base.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Excel 1900 date system; calculation uses full JavaScript double precision.",
+        "Shows the original formula metadata; does not claim to recalculate imported formulas."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DSUM",
+      "required": true,
+      "friendlyName": "Sum matching numeric records",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DSUM"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DAVERAGE",
+      "required": true,
+      "friendlyName": "Average matching numeric records",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DAVERAGE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DCOUNT",
+      "required": true,
+      "friendlyName": "Count matching numeric records",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DCOUNT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DCOUNTA",
+      "required": true,
+      "friendlyName": "Count matching nonblank records",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DCOUNTA"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DMAX",
+      "required": true,
+      "friendlyName": "Largest matching numeric value",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DMAX"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DMIN",
+      "required": true,
+      "friendlyName": "Smallest matching numeric value",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DMIN"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DGET",
+      "required": true,
+      "friendlyName": "Get exactly one matching record",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DGET"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DPRODUCT",
+      "required": true,
+      "friendlyName": "Multiply matching numeric values",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DPRODUCT"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DSTDEV",
+      "required": true,
+      "friendlyName": "Sample standard deviation of matching records",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DSTDEV"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "DVAR",
+      "required": true,
+      "friendlyName": "Sample variance of matching records",
+      "categories": [
+        "Database"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > DVAR"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Criteria text without an explicit operator uses Excel database prefix matching. Wildcards and escaped wildcards are supported. Formula-based criteria columns are not supported."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "GETPIVOTDATA",
+      "required": true,
+      "friendlyName": "Get a filtered pivot summary",
+      "categories": [
+        "Pivot & analytical models"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > GETPIVOTDATA"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Uses a functioning local pivot summary rather than referencing a stored Excel PivotTable object."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "CUBEVALUE",
+      "required": true,
+      "friendlyName": "Read a connected model measure",
+      "categories": [
+        "Pivot & analytical models"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > CUBEVALUE"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Requires an explicitly configured model provider. The demo connection is a labeled local sales dataset, not Excel/SSAS cube compatibility. Production adapters and their credentials/infrastructure must be supplied separately."
+      ],
+      "externalDependencies": [
+        "Analytical model provider. Included demo provider is for demonstrations; production providers require configuration."
+      ]
+    },
+    {
+      "name": "CUBEMEMBER",
+      "required": true,
+      "friendlyName": "Browse connected model members",
+      "categories": [
+        "Pivot & analytical models"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/advanced.test.ts > CUBEMEMBER"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Requires an explicitly configured model provider. The demo connection is a labeled local sales dataset, not Excel/SSAS cube compatibility. Production adapters and their credentials/infrastructure must be supplied separately."
+      ],
+      "externalDependencies": [
+        "Analytical model provider. Included demo provider is for demonstrations; production providers require configuration."
+      ]
+    },
+    {
+      "name": "WF.ATTENDANCE",
+      "required": false,
+      "friendlyName": "Attendance summary",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.WORKING_DAYS",
+      "required": false,
+      "friendlyName": "Working days between dates",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred.",
+        "Blank holiday cells are ignored; nonblank holiday dates must use YYYY-MM-DD."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.SERVICE",
+      "required": false,
+      "friendlyName": "Years and months of service",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.SALARY_TOTAL",
+      "required": false,
+      "friendlyName": "Salary totals",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.OVERTIME",
+      "required": false,
+      "friendlyName": "Overtime pay using your rules",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.DEPARTMENT_PAYROLL",
+      "required": false,
+      "friendlyName": "Department-wise payroll",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.DUPLICATE_EMPLOYEES",
+      "required": false,
+      "friendlyName": "Duplicate employee detection",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.EMPLOYEE_LOOKUP",
+      "required": false,
+      "friendlyName": "Employee record lookup",
+      "categories": [
+        "Workflows",
+        "Office & HR"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.MARKS",
+      "required": false,
+      "friendlyName": "Total and average marks",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.PERCENTAGE",
+      "required": false,
+      "friendlyName": "Percentage",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.PASS_FAIL",
+      "required": false,
+      "friendlyName": "Pass or fail",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.GRADES",
+      "required": false,
+      "friendlyName": "Grades from your grade bands",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.RANKINGS",
+      "required": false,
+      "friendlyName": "Student rankings",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.SUBJECT_SUMMARY",
+      "required": false,
+      "friendlyName": "Subject-wise marks summary",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.ATTENDANCE_PERCENTAGE",
+      "required": false,
+      "friendlyName": "Attendance percentage",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.GPA",
+      "required": false,
+      "friendlyName": "GPA / CGPA with credits",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred.",
+        "Repeated courses, withdrawals and pass/fail exclusions must be selected according to your institution before calculation."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.FEES",
+      "required": false,
+      "friendlyName": "Fee paid and outstanding summary",
+      "categories": [
+        "Workflows",
+        "Education"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.INCOME_EXPENSE",
+      "required": false,
+      "friendlyName": "Income and expense totals",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.PROFIT",
+      "required": false,
+      "friendlyName": "Profit and profit margin",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.CUSTOMER_BALANCE",
+      "required": false,
+      "friendlyName": "Customer balances",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.INVOICE_AGING",
+      "required": false,
+      "friendlyName": "Invoice aging",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.MONTHLY_SALES",
+      "required": false,
+      "friendlyName": "Monthly sales summary",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.COMMISSION",
+      "required": false,
+      "friendlyName": "Commission using your rules",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.LOAN",
+      "required": false,
+      "friendlyName": "Loan installments",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.DEPRECIATION",
+      "required": false,
+      "friendlyName": "Asset depreciation",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.INVESTMENT",
+      "required": false,
+      "friendlyName": "Investment cash-flow analysis",
+      "categories": [
+        "Workflows",
+        "Accounts & Sales"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred.",
+        "IRR may have multiple roots; the library uses its default initial guess. Cash flows are evenly spaced; use XNPV/XIRR for irregular dates."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.STOCK",
+      "required": false,
+      "friendlyName": "Inventory stock balance",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.REORDER",
+      "required": false,
+      "friendlyName": "Inventory reorder alerts",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.PRODUCTION_COST",
+      "required": false,
+      "friendlyName": "Material and production costs",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.DEFECT_PERCENTAGE",
+      "required": false,
+      "friendlyName": "Defect percentage",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.EFFICIENCY",
+      "required": false,
+      "friendlyName": "Production efficiency against targets",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.UNIT_CONVERSION",
+      "required": false,
+      "friendlyName": "Unit conversion",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.PACKING",
+      "required": false,
+      "friendlyName": "Batch and packing calculation",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.SUPPLIERS",
+      "required": false,
+      "friendlyName": "Supplier cost comparison",
+      "categories": [
+        "Workflows",
+        "Inventory & Industry"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.DESCRIPTIVE",
+      "required": false,
+      "friendlyName": "Descriptive statistics",
+      "categories": [
+        "Workflows",
+        "Research"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.CORRELATION",
+      "required": false,
+      "friendlyName": "Pearson correlation",
+      "categories": [
+        "Workflows",
+        "Research"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.REGRESSION",
+      "required": false,
+      "friendlyName": "Linear regression summary",
+      "categories": [
+        "Workflows",
+        "Research"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.PROBABILITY",
+      "required": false,
+      "friendlyName": "Normal probability",
+      "categories": [
+        "Workflows",
+        "Research"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.CONFIDENCE_INTERVAL",
+      "required": false,
+      "friendlyName": "Mean confidence interval",
+      "categories": [
+        "Workflows",
+        "Research"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    },
+    {
+      "name": "WF.STATISTICAL_TEST",
+      "required": false,
+      "friendlyName": "Two-sample or paired t test",
+      "categories": [
+        "Workflows",
+        "Research"
+      ],
+      "implementationStatus": "implemented",
+      "exampleTest": "passed",
+      "testReferences": [
+        "tests/registry.test.ts",
+        "tests/workflows.test.ts"
+      ],
+      "missingTestFiles": [],
+      "compatibility": [
+        "Workflows use the explicitly selected data and settings; no tax laws or institutional policies are inferred."
+      ],
+      "externalDependencies": []
+    }
+  ]
+}
