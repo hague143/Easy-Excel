@@ -1,6 +1,8 @@
 import * as Formula from '@formulajs/formulajs';
 import jstatModule from 'jstat';
 import { fail, flatten, type FunctionDef, type InputDef } from '../engine/types';
+import { normalCDF } from '../engine/numeric-helpers';
+import { checkError } from '../engine/base-helpers';
 
 const stats = (jstatModule as any).jStat ?? jstatModule;
 const F = Formula as any;
@@ -62,6 +64,7 @@ const rows = (v: any, label: string): any[][] => {
   return v;
 };
 const date = (v: any, label: string): Date => {
+  checkError(v);
   if (typeof v !== 'string' || !/^\d{4}-\d{2}-\d{2}$/.test(v))
     fail('#VALUE!', `${label} must use YYYY-MM-DD.`);
   const d = new Date(`${v}T00:00:00Z`);
@@ -79,6 +82,7 @@ const groupTotals = (groups: any[], values: number[]) => {
   equal(groups, values);
   const m = new Map<string, number>();
   groups.forEach((g, i) => {
+    checkError(g);
     if (g === null || g === '') fail('#VALUE!', `Group, row ${i + 1} is blank.`);
     m.set(String(g), (m.get(String(g)) ?? 0) + values[i]);
   });
@@ -150,17 +154,18 @@ const define = (
     calculate: (supplied) => {
       const normalized = { ...supplied };
       for (const field of inputs) {
-        if (
-          ['data', 'matrix', 'conditions', 'operations'].includes(field.type) ||
-          !Array.isArray(normalized[field.key])
-        )
+        if (['data', 'matrix', 'conditions', 'operations'].includes(field.type)) continue;
+        if (!Array.isArray(normalized[field.key])) {
+          checkError(normalized[field.key]);
           continue;
+        }
         const cells = flatten(normalized[field.key]);
         if (cells.length !== 1)
           fail(
             '#VALUE!',
             `${field.label} needs one value. Select a single cell or enter the setting directly.`,
           );
+        checkError(cells[0]);
         normalized[field.key] = cells[0];
       }
       return calculate(normalized);
@@ -237,6 +242,7 @@ define(
   (a) => {
     const start = date(a.start, 'Start date'),
       end = date(a.end, 'End date');
+    checkError(a.weekend);
     const weekend = String(a.weekend);
     if (!/^[01]{7}$/.test(weekend) || weekend === '1111111')
       fail('#VALUE!', 'Enter seven 0/1 digits with at least one working day, starting Monday.');
@@ -643,6 +649,7 @@ define(
     equal(groups, data);
     const m = new Map<string, number[]>();
     groups.forEach((g, i) => {
+      checkError(g);
       if (g == null || g === '') fail('#VALUE!', 'Subject names cannot be blank.');
       m.set(String(g), [...(m.get(String(g)) ?? []), data[i]]);
     });
@@ -1519,7 +1526,7 @@ define(
       sd = positive(a.standardDeviation, 'Standard deviation');
     if (!['cumulative probability', 'density'].includes(a.mode ?? 'cumulative probability'))
       fail('#VALUE!', 'Choose cumulative probability or density.');
-    return a.mode === 'density' ? stats.normal.pdf(x, mean, sd) : stats.normal.cdf(x, mean, sd);
+    return a.mode === 'density' ? stats.normal.pdf(x, mean, sd) : normalCDF((x - mean) / sd);
   },
   ['probability', 'normal distribution', 'NORM.DIST'],
 );

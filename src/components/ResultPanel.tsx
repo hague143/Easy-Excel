@@ -13,6 +13,7 @@ import {
 import type { CalculationResult } from '../engine/types';
 import { downloadBlob, exportResultCSV, exportResultXLSX } from '../workbook/io';
 import { displayCell } from './Grid';
+import { formatResultNumber } from '../engine/result-format';
 
 export function ResultPanel({
   result,
@@ -43,13 +44,13 @@ export function ResultPanel({
       : [];
   const numericRows = rows.filter((r) => r.length > 1 && typeof r[r.length - 1] === 'number');
   const scalar =
-    typeof result.value === 'number'
-      ? new Intl.NumberFormat(undefined, { maximumFractionDigits: 8 }).format(result.value)
-      : displayCell(result.value);
+    typeof result.value === 'number' ? formatResultNumber(result.value) : displayCell(result.value);
   async function copy() {
     try {
       await navigator.clipboard.writeText(
-        array ? rows.map((r) => r.map(displayCell).join('\t')).join('\n') : scalar,
+        array
+          ? rows.map((r) => r.map(displayCell).join('\t')).join('\n')
+          : displayCell(result.value),
       );
       setCopied(true);
       setTimeout(() => setCopied(false), 1800);
@@ -134,7 +135,10 @@ export function ResultPanel({
           {result.value.label}
         </a>
       ) : (
-        <div className="scalar-result">
+        <div
+          className="scalar-result"
+          title={typeof result.value === 'number' ? String(result.value) : undefined}
+        >
           {scalar}
           <small>
             {result.functionName === 'PMT'

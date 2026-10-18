@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import type { Page } from '@playwright/test';
 import ExcelJS from 'exceljs';
 import { readFile } from 'node:fs/promises';
+import { functions as auditedFunctions } from '../src/engine/registry';
 
 test('large imports page the grid while calculations retain every row', async ({ page }) => {
   const data =
@@ -501,4 +502,101 @@ test('beginner guide remains readable and usable on a phone', async ({ page }) =
   await guide.getByRole('button', { name: 'Load this selection example' }).click();
   await calculate(page);
   await expect(result(page).locator('.scalar-result')).toHaveText('80Result');
+});
+
+// Exercise the actual task picker, form, worker and result panel for every task,
+// including loading reference worksheets and demo analytical-provider examples.
+// Result accuracy is independently checked in registry and numerical audit suites.
+
+for (let offset = 0; offset < auditedFunctions.length; offset += 75) {
+  const group = auditedFunctions.slice(offset, offset + 75);
+  test(`all-formula audit: tasks ${offset + 1}–${offset + group.length}`, async ({ page }) => {
+    test.setTimeout(240_000);
+    await page.addStyleTag({
+      content:
+        '*, *::before, *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }',
+    });
+    for (const def of group) {
+      await test.step(def.name, async () => {
+        await task(page, def.name);
+        await page.getByRole('button', { name: 'Try with example values', exact: true }).click();
+        await calculate(page);
+        await expect(
+          result(page).getByRole('heading', { name: def.friendlyName, exact: true }),
+        ).toBeVisible();
+      });
+    }
+  });
+}
+
+test('corrected probabilities, copying, formatting and reusable rounding work through the UI', async ({
+  page,
+}) => {
+  await task(page, 'WF.PROBABILITY');
+  await page.locator('#field-x').fill('-10');
+  await page.locator('#field-mean').fill('0');
+  await page.locator('#field-standardDeviation').fill('1');
+  await calculate(page);
+  const scalar = result(page).locator('.scalar-result');
+  await expect(scalar).toContainText('7.61985302416E-24');
+  const fullPrecision = await scalar.getAttribute('title');
+  await page.evaluate(() => {
+    Object.defineProperty(navigator, 'clipboard', {
+      configurable: true,
+      value: {
+        writeText: async (text: string) => {
+          (window as Window & { copiedResult?: string }).copiedResult = text;
+        },
+      },
+    });
+  });
+  await result(page).getByRole('button', { name: 'Copy', exact: true }).click();
+  await expect
+    .poll(() => page.evaluate(() => (window as Window & { copiedResult?: string }).copiedResult))
+    .toBe(fullPrecision);
+  expect(Number(fullPrecision)).toBeGreaterThan(0);
+  await task(page, 'TEXT');
+  await page.locator('#field-value').fill('0.125');
+  await page.locator('#field-format').fill('0.0"%"');
+  await calculate(page);
+  await expect(result(page).locator('.scalar-result')).toHaveText('0.1%Result');
+  await task(page, 'MAP');
+  await literal(page, 'data', '1.005,-1.005');
+  const operation = page
+    .locator('.field')
+    .filter({ has: page.locator('label[for="field-operations"]') });
+  await operation
+    .getByRole('combobox', { name: 'Operation', exact: true })
+    .first()
+    .selectOption('round');
+  await calculate(page);
+  await expect(result(page).getByRole('cell', { name: '1.01', exact: true })).toBeVisible();
+  await expect(result(page).getByRole('cell', { name: '-1.01', exact: true })).toBeVisible();
+});
+
+test('SUBTOTAL and AGGREGATE exclude all cells in a hidden row of a selected block', async ({
+  page,
+}) => {
+  const preview = await uploadCSV(
+    page,
+    'visible-block.csv',
+    'ID,First amount,Second amount\n1,10,20\n2,30,40',
+  );
+  await preview.getByRole('button', { name: 'Import data', exact: true }).click();
+  await page.getByRole('button', { name: 'Select row 2', exact: true }).click();
+  await page.getByRole('button', { name: 'Hide selected rows', exact: true }).click();
+  for (const name of ['SUBTOTAL', 'AGGREGATE']) {
+    await task(page, name);
+    const field = page.locator('.field').filter({ has: page.locator('label[for="field-data"]') });
+    await field.getByRole('button', { name: 'Range', exact: true }).click();
+    await page.locator('#field-data').fill('B2:C3');
+    await page.locator('#field-column').fill('B');
+    if (name === 'SUBTOTAL') await page.locator('#field-functionNum').selectOption('109');
+    else {
+      await page.locator('#field-functionNum').fill('9');
+      await page.locator('#field-options').selectOption('1');
+    }
+    await calculate(page);
+    await expect(result(page).locator('.scalar-result')).toHaveText('70Result');
+  }
 });

@@ -112,6 +112,10 @@ export const numbers = (value: any): number[] => {
   return values.filter((v): v is number => typeof v === 'number' && Number.isFinite(v));
 };
 export const numeric = (value: any, label = 'Value'): number => {
+  if (value && typeof value === 'object' && 'error' in value)
+    fail(value.error, value.message || value.error);
+  if (value instanceof Error)
+    fail(value.message.startsWith('#') ? value.message : '#VALUE!', value.message);
   if (value === null || value === '') return 0;
   const n = typeof value === 'boolean' ? Number(value) : Number(value);
   if (!Number.isFinite(n)) fail('#VALUE!', `${label} must be numeric.`);

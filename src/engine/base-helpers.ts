@@ -235,6 +235,7 @@ export function utcToday(context: CalcContext): number {
   return dateSerial(now);
 }
 export function weekendMask(v: any = 1): string {
+  checkError(v);
   if (typeof v === 'string' && /^[01]{7}$/.test(v)) {
     if (v === '1111111') fail('#VALUE!', 'At least one working day is required.');
     return v;

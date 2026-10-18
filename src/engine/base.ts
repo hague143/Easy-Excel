@@ -1,5 +1,6 @@
 import { fail } from './types';
 import type { CalcContext, FunctionDef, InputDef } from './types';
+import { colIndex, colLetter } from './bindings';
 import {
   asNumber as n,
   asText as t,
@@ -176,22 +177,29 @@ function visibleValues(
   const sheet = c.workbook?.sheets.find((s) => s.id === c.sheetId) || c.workbook?.sheets[0];
   const start = integer(a.startRow ?? 2) - 2;
   if (start < -1) fail('#VALUE!', 'First row must be at least 1.');
+  const width = Array.isArray(a.data?.[0]) ? a.data[0].length : 1;
+  if (
+    !width ||
+    (Array.isArray(a.data?.[0]) && a.data.some((r: any) => !Array.isArray(r) || r.length !== width))
+  )
+    fail('#VALUE!', 'Select a rectangular summary range.');
+  const firstColumn = t(a.column || 'A').toUpperCase();
+  if (!/^[A-Z]{1,3}$/.test(firstColumn) || colIndex(firstColumn) + width > 16384)
+    fail('#REF!', 'Enter the first selected column letter, from A through XFD.');
+  const columns = Array.from({ length: width }, (_, i) => colLetter(colIndex(firstColumn) + i));
+  const nested = new Set(
+    ignoreNested
+      ? Object.entries(sheet?.formulae || {})
+          .filter(([, formula]) => /^=?\s*(SUBTOTAL|AGGREGATE)\s*\(/i.test(formula))
+          .map(([address]) => address.toUpperCase().replace(/\$/g, ''))
+      : [],
+  );
   return range(a.data).filter((v, i) => {
-    const row = start + i;
+    const row = start + Math.floor(i / width);
     if (sheet?.filteredRows?.includes(row) || (ignoreHidden && sheet?.hiddenRows?.includes(row)))
       return false;
     if (ignoreErrors && v && typeof v === 'object' && 'error' in v) return false;
-    if (
-      ignoreNested &&
-      sheet?.formulae &&
-      Object.entries(sheet.formulae).some(
-        ([address, formula]) =>
-          address.toUpperCase().replace(/\$/g, '') ===
-            String(a.column || 'A').toUpperCase() + (row + 2) &&
-          /^=?\s*(SUBTOTAL|AGGREGATE)\s*\(/i.test(formula),
-      )
-    )
-      return false;
+    if (nested.has(columns[i % width] + (row + 2))) return false;
     return true;
   });
 }
@@ -337,7 +345,13 @@ def(
       ],
     },
     inp('startRow', 'First worksheet row (row 1 contains headers)', 'number', 2),
-    inp('column', 'Reference column for nested-summary metadata', 'text', 'A'),
+    inp(
+      'column',
+      'Reference column for nested-summary metadata',
+      'text',
+      'A',
+      'Enter the first selected column letter. For a block B2:D10, use B here and 2 as the first worksheet row.',
+    ),
   ],
   { data: [1, 2, 3], functionNum: 9 },
   6,
@@ -378,7 +392,13 @@ def(
     },
     inp('k', 'Rank, percentile, or quartile (functions 14–19)', 'number', 1),
     inp('startRow', 'First worksheet row (row 1 contains headers)', 'number', 2),
-    inp('column', 'Reference column for nested-summary metadata', 'text', 'A'),
+    inp(
+      'column',
+      'Reference column for nested-summary metadata',
+      'text',
+      'A',
+      'Enter the first selected column letter. For a block B2:D10, use B here and 2 as the first worksheet row.',
+    ),
   ],
   { data: [1, 2, 3], functionNum: 9, options: 6 },
   6,
@@ -839,12 +859,42 @@ def(
   [],
   'text',
 );
+function formatSections(format: string): { sections: string[]; restore: (mask: string) => string } {
+  const sections = [''],
+    literals: string[] = [];
+  const literal = (text: string) => {
+    if (literals.length >= 6400) fail('#VALUE!', 'Too many literal segments in the format.');
+    const token = String.fromCharCode(0xe000 + literals.length);
+    literals.push(text);
+    sections[sections.length - 1] += token;
+  };
+  for (let i = 0; i < format.length; i++) {
+    const char = format[i];
+    if (char === '"') {
+      const end = format.indexOf('"', i + 1);
+      if (end === -1) fail('#VALUE!', 'Close each quoted literal in the format.');
+      literal(format.slice(i + 1, end));
+      i = end;
+    } else if (char === '\\') {
+      if (++i >= format.length) fail('#VALUE!', 'A format escape needs a following character.');
+      literal(format[i]);
+    } else if (char === ';') sections.push('');
+    else if (char.charCodeAt(0) >= 0xe000 && char.charCodeAt(0) <= 0xf8ff) literal(char);
+    else sections[sections.length - 1] += char;
+  }
+  if (sections.length > 3) fail('#VALUE!', 'Use at most three numeric format sections.');
+  return {
+    sections,
+    restore: (mask) =>
+      mask.replace(/[\uE000-\uF8FF]/g, (token) => literals[token.charCodeAt(0) - 0xe000]),
+  };
+}
 function formatText(a: Record<string, any>): string {
   const v = n(a.value),
     format = t(a.format);
   if (format === '') return '';
   if (format === 'General') return String(v);
-  const sections = format.split(';'),
+  const { sections, restore } = formatSections(format),
     f = sections[v < 0 && sections.length > 1 ? 1 : v === 0 && sections.length > 2 ? 2 : 0];
   if (/[\[\]]/.test(f))
     fail('#VALUE!', 'Color, conditional, locale and elapsed-time format tags are not supported.');
@@ -904,14 +954,25 @@ function formatText(a: Record<string, any>): string {
       else if (lower === 's' || lower === 'ss') out += String(ss).padStart(lower.length, '0');
       else out += token;
     }
-    return out;
+    return restore(out);
   }
-  if (!/[0#]/.test(f)) return f.replace(/"/g, '');
+  if (!/[0#]/.test(f)) return restore(f);
   if (/[Ee][+-]0+/.test(f)) {
-    const digits = (f.split('.')[1]?.split(/[Ee]/)[0] || '').length;
-    return v
+    const scientific = f.match(/[0#]+(?:\.[0#]+)?[Ee]([+-])(0+)/);
+    if (!scientific) fail('#VALUE!', 'Unsupported scientific format.');
+    const digits = (scientific[0].split('.')[1]?.split(/[Ee]/)[0] || '').length;
+    const number = sections.length > 1 ? Math.abs(v) : v;
+    const exponent = number === 0 ? 0 : Math.floor(Math.log10(Math.abs(number)));
+    const formatted = roundHalfAway(number, digits - exponent)
       .toExponential(digits)
-      .replace(/e([+-])(\d+)$/i, (_, sgn, d) => 'E' + sgn + d.padStart(2, '0'));
+      .replace(
+        /e([+-])(\d+)$/i,
+        (_, sign, exponent) =>
+          'E' +
+          (sign === '+' && scientific[1] === '-' ? '' : sign) +
+          exponent.padStart(scientific[2].length, '0'),
+      );
+    return restore(f.replace(scientific[0], formatted));
   }
   if (/[?_]/.test(f)) fail('#VALUE!', 'Spacing and fraction placeholder masks are not supported.');
   if (/\//.test(f)) fail('#VALUE!', 'Fraction format masks are not supported.');
@@ -938,10 +999,7 @@ function formatText(a: Record<string, any>): string {
       ),
     },
   );
-  return f
-    .replace(rawPattern, formatted)
-    .replace(/"([^"]*)"/g, '$1')
-    .replace(/\\(.)/g, '$1');
+  return restore(f.replace(rawPattern, formatted));
 }
 def(
   'TEXT',
@@ -1750,7 +1808,9 @@ def(
   { text: '2024-01-01' },
   45292,
   (a) => {
-    if (typeof a.text !== 'string') fail('#VALUE!', 'DATEVALUE requires date text.');
+    checkError(a.text);
+    if (typeof a.text !== 'string' || !/^\d{4}-\d{1,2}-\d{1,2}(?:$|[T ])/.test(a.text.trim()))
+      fail('#VALUE!', 'DATEVALUE requires ISO calendar-date text.');
     return Math.floor(dateSerial(a.text));
   },
   ['parse date', 'tareekh'],

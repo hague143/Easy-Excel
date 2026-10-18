@@ -30,7 +30,7 @@ The development server listens on port 5173. For a production build, use `npm ru
 
 `npm run build:standalone` creates `SheetPilot.html` in the checkout's parent directory. Download that single file and open it in a current Chrome or Edge browser. Application code, fonts, styles, XLSX support, and workers are embedded; no development server, installation, or network connection is needed. Browser or organization policies may restrict opening local HTML files. Save a downloaded project for portable backups because browser-local storage can depend on the file's location.
 
-Run `npm run test:standalone` to exercise the same 20 acceptance workflows with networking disabled. The managed cloud browser blocks `file://` navigation, so this test supplies the exact file contents as one intercepted loopback document; it starts no server and rejects requests for additional assets. This verifies the self-contained edition without claiming a direct `file://` browser test succeeded. See [standalone build details](docs/STANDALONE.md).
+Run `npm run test:standalone` to exercise the same 27 acceptance checks with networking disabled. The managed cloud browser blocks `file://` navigation, so this test supplies the exact file contents as one intercepted loopback document; it starts no server and rejects requests for additional assets. This verifies the self-contained edition without claiming a direct `file://` browser test succeeded. See [standalone build details](docs/STANDALONE.md).
 
 ## Use
 
@@ -57,7 +57,7 @@ Playwright uses `/usr/bin/chromium` when available. Otherwise install its browse
 
 All **261 unique functions** from the supplied specification are registered, with **40 ready-made workflows**. Each required function has an explicitly stated expected-result example and test references. See [function coverage](docs/FUNCTION_COVERAGE.md), [compatibility limits](docs/COMPATIBILITY.md), and the [architecture](docs/ARCHITECTURE.md). Passing examples and edge tests establish the tested behavior; they do not certify every behavior of Microsoft Excel.
 
-The [validation report](docs/VALIDATION.md) records 1,560 passing automated checks and 20 passing browser acceptance tests.
+The [formula audit](docs/FORMULA_AUDIT.md) documents the corrected defects and independent reference checks. The [validation report](docs/VALIDATION.md) records 4,044 passing automated checks and 27 passing browser acceptance tests.
 
 The browser suite covers the ten requested acceptance workflows, responsive navigation, clean startup, IF comparison configuration, visual LET editing, and pipeline dependencies/cycles. Numerical expected values include published financial examples and independently established statistical values; implementations are never used to manufacture their own expected answers.
 

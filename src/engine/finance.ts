@@ -1,5 +1,6 @@
 import type { FunctionDef, InputDef } from './types';
 import { CalcError, fail, flatten, numeric } from './types';
+import { checkError } from './base-helpers';
 
 // Finance uses decimal rates: 0.12 means 12%. Payment functions use a rate
 // per payment period; security functions use an annual rate. Cash outflows
@@ -134,8 +135,11 @@ function cashflowIRR(values: number[], times: number[], guess: number) {
 
 const DAY = 86400000;
 function date(value: any, label: string): Date {
+  checkError(value);
   let result: Date;
   if (typeof value === 'number') {
+    if (!Number.isFinite(value) || value < 0 || value >= 2958466)
+      fail('#NUM!', `${label} falls outside Excel’s date range.`);
     // Excel's 1900 calendar includes the fictitious 1900-02-29.
     const serial = Math.floor(value);
     result = new Date(Date.UTC(1899, 11, 31) + (serial - (serial >= 60 ? 1 : 0)) * DAY);

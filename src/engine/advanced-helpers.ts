@@ -8,6 +8,7 @@ import {
   type ModelProvider,
   type Sheet,
 } from './types';
+import { logical, roundHalfAway } from './base-helpers';
 
 export const cellError = (value: any): void => {
   if (value && typeof value === 'object' && 'error' in value)
@@ -166,6 +167,7 @@ export function resolveReference(
   anchorColumn = 1,
 ): Reference {
   if (!context.workbook) fail('#REF!', 'Select a workbook before resolving a reference.');
+  cellError(reference);
   let text = String(reference ?? '').trim();
   let sheet =
     context.workbook.sheets.find((s) => s.id === context.sheetId) || context.workbook.sheets[0];
@@ -264,11 +266,14 @@ export function evaluateOperation(expression: any, scope: SafeScope = {}, depth 
   if (node.op === 'if') {
     if (args.length !== 3)
       fail('#VALUE!', 'A conditional operation needs a test and two outcomes.');
-    return evaluate(args[0]) ? evaluate(args[1]) : evaluate(args[2]);
+    return logical(evaluate(args[0])) ? evaluate(args[1]) : evaluate(args[2]);
   }
   if (node.op === 'iferror') {
+    if (args.length !== 2) fail('#VALUE!', 'Error replacement needs a value and a fallback.');
     try {
-      return evaluate(args[0]);
+      const value = evaluate(args[0]);
+      cellError(value);
+      return value;
     } catch (error) {
       if (error instanceof CalcError) return evaluate(args[1]);
       throw error;
@@ -324,9 +329,7 @@ export function evaluateOperation(expression: any, scope: SafeScope = {}, depth 
     case 'abs':
       return Math.abs(numeric(values[0]));
     case 'round': {
-      const n = numeric(values[0]),
-        factor = 10 ** integer(values[1] ?? 0);
-      return (Math.sign(n) * Math.round(Math.abs(n) * factor + Number.EPSILON)) / factor;
+      return roundHalfAway(numeric(values[0]), integer(values[1] ?? 0));
     }
     case 'gt':
       return cmp(values[0], values[1]) > 0;
@@ -341,11 +344,11 @@ export function evaluateOperation(expression: any, scope: SafeScope = {}, depth 
     case 'neq':
       return cmp(values[0], values[1]) !== 0;
     case 'and':
-      return values.every(Boolean);
+      return values.map(logical).every(Boolean);
     case 'or':
-      return values.some(Boolean);
+      return values.map(logical).some(Boolean);
     case 'not':
-      return !values[0];
+      return !logical(values[0]);
     default:
       return fail('#NAME?', `Operation '${node.op}' is not in the safe operation catalogue.`);
   }

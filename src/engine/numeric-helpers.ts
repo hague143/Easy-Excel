@@ -12,6 +12,7 @@ export function dataset(value: any, min = 1): number[] {
 }
 export function strictVector(value: any): number[] {
   return flatten(value).map((v) => {
+    if (v && typeof v === 'object' && 'error' in v) fail(v.error, v.message || v.error);
     if (typeof v !== 'number' || !Number.isFinite(v))
       fail('#VALUE!', 'All entries must be finite numbers.');
     return v;
@@ -51,6 +52,7 @@ export function covariance(a: number[], b: number[], sample = true) {
   return a.reduce((s, x, i) => s + (x - am) * (b[i] - bm), 0) / (a.length - (sample ? 1 : 0));
 }
 export function percentile(a: number[], p: number) {
+  if (!a.length) fail('#NUM!', 'At least one numeric observation is required.');
   if (p < 0 || p > 1) fail('#NUM!', 'Percentile must be between 0 and 1.');
   const s = [...a].sort((a, b) => a - b),
     pos = (s.length - 1) * p,
@@ -73,6 +75,7 @@ export function integer(value: any, label = 'Value', min = 0, max = 1_000_000) {
 export function numericMatrix(value: any): number[][] {
   return matrix(value).map((row) =>
     row.map((v) => {
+      if (v && typeof v === 'object' && 'error' in v) fail(v.error, v.message || v.error);
       if (typeof v !== 'number' || !Number.isFinite(v))
         fail('#VALUE!', 'Matrix cells must all be numeric.');
       return v;

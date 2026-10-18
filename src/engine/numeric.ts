@@ -1,6 +1,7 @@
 import type { FunctionDef, InputDef } from './types';
 import * as formula from '@formulajs/formulajs';
 import { financeFunctions } from './finance';
+import { checkError, logical } from './base-helpers';
 import {
   covariance,
   dataset,
@@ -88,7 +89,14 @@ function def(
       'Excel-compatible numeric conventions; blanks and text in observation ranges are ignored unless the operation requires a strict numeric matrix.',
     ],
     testRefs: ['tests/numeric.test.ts'],
-    calculate: (args) => finite(run({ ...defaults, ...args })),
+    calculate: (args) => {
+      const actual = { ...defaults, ...args };
+      for (const input of inputs) {
+        if (input.type === 'boolean') actual[input.key] = logical(actual[input.key]);
+        else if (input.type === 'text' || input.type === 'select') checkError(actual[input.key]);
+      }
+      return finite(run(actual));
+    },
   };
 }
 const functions: FunctionDef[] = [];
@@ -110,8 +118,8 @@ const unaryStats: [string, string, (x: number[]) => any, any][] = [
     (a) => {
       const counts = new Map<number, number>();
       a.forEach((v) => counts.set(v, (counts.get(v) || 0) + 1));
-      const max = Math.max(...counts.values());
-      if (max === 1) fail('#N/A', 'No value occurs more than once.');
+      const max = [...counts.values()].reduce((m, count) => Math.max(m, count), 0);
+      if (max < 2) fail('#N/A', 'No value occurs more than once.');
       return [...counts]
         .filter(([, v]) => v === max)
         .map(([v]) => v)
@@ -125,8 +133,8 @@ const unaryStats: [string, string, (x: number[]) => any, any][] = [
     (a) => {
       const counts = new Map<number, number>();
       a.forEach((v) => counts.set(v, (counts.get(v) || 0) + 1));
-      const max = Math.max(...counts.values());
-      if (max === 1) fail('#N/A', 'No value occurs more than once.');
+      const max = [...counts.values()].reduce((m, count) => Math.max(m, count), 0);
+      if (max < 2) fail('#N/A', 'No value occurs more than once.');
       return [...counts]
         .filter(([, v]) => v === max)
         .map(([v]) => v)
@@ -197,7 +205,7 @@ for (const [name, title, calc, expected] of unaryStats)
     name,
     title,
     [data()],
-    (a) => calc(dataset(a.data)),
+    (a) => calc(dataset(a.data, 0)),
     { data: [1, 3, 3, 3, 5] },
     expected,
     `${title} of numeric observations. Sample functions use the n−1 denominator; text and blanks are ignored.`,
@@ -319,8 +327,8 @@ add(
   'Frequency by upper bounds',
   [data(), data('bins', 'Ascending upper bounds', [10, 30, 50])],
   (a) => {
-    const values = dataset(a.data),
-      bins = dataset(a.bins);
+    const values = dataset(a.data, 0),
+      bins = dataset(a.bins, 0);
     if (bins.some((v, i) => i > 0 && v < bins[i - 1]))
       fail('#VALUE!', 'Bin boundaries must be in ascending order.');
     const out = Array(bins.length + 1).fill(0);
@@ -639,7 +647,8 @@ add(
     },
   ],
   (a) => {
-    const x = dataset(a.data, 2),
+    const knownSigma = a.sigma !== undefined && a.sigma !== '' && a.sigma !== null;
+    const x = dataset(a.data, knownSigma ? 1 : 2),
       s =
         a.sigma === undefined || a.sigma === '' || a.sigma === null
           ? Math.sqrt(variance(x))
@@ -986,6 +995,8 @@ for (const name of ['COMBIN', 'PERMUT'])
     name === 'COMBIN' ? 'Count combinations' : 'Count ordered permutations',
     [num('number', 'Total items', 5), num('chosen', 'Items chosen', 2)],
     (a) => {
+      if (numeric(a.number) < 0 || numeric(a.chosen) < 0)
+        fail('#NUM!', 'Item counts cannot be negative.');
       const n = integer(a.number, 'Total items', 0, Number.MAX_SAFE_INTEGER);
       let k = integer(a.chosen, 'Items chosen', 0, n);
       if (k > 100000) fail('#NUM!', 'The chosen count is too large.');
@@ -1002,7 +1013,7 @@ addEngineering(
   'SUMSQ',
   'Sum of squares',
   [data()],
-  (a) => sumsq(dataset(a.data)),
+  (a) => sumsq(dataset(a.data, 0)),
   { data: [1, 2, 3] },
   14,
   'Adds the squares of numeric cells, ignoring text and blanks.',

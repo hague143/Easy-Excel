@@ -2,16 +2,18 @@
 
 Validated in the supplied cloud workspace with Node.js 24.19.0, npm 11.9.0, and Chromium 154.0.8037.57.
 
-| Check                                                                           | Result                                                                                                                                                                           |
-| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| Frozen installation (`npm ci --cache /workspace/.npm --no-audit --no-fund`)     | Passed                                                                                                                                                                           |
-| Strict TypeScript and production build (`npm run build`)                        | Passed                                                                                                                                                                           |
-| Production preview smoke: worker calculation and XLSX import/export             | Passed; no browser errors                                                                                                                                                        |
-| Numerical, workbook, search, registry, input, and dependency tests (`npm test`) | 1,560 passed across 10 suites                                                                                                                                                    |
-| Chromium browser acceptance (`npm run test:e2e`)                                | 20 passed; no page or browser console errors                                                                                                                                     |
-| Portable HTML (`npm run test:standalone`)                                       | 20 passed offline using the exact HTML contents; no external asset requests. Direct file navigation is blocked by cloud browser policy; see [standalone details](STANDALONE.md). |
-| Required-function expected-result examples (`npm run coverage:report`)          | 261/261 passed                                                                                                                                                                   |
-| Ready-made workflows                                                            | 40 implemented; expected examples and business-rule/error tests passed                                                                                                           |
+| Check                                                                           | Result                                                                                                                                                                                                                                                  |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Frozen installation (`npm ci --cache /workspace/.npm --no-audit --no-fund`)     | Passed                                                                                                                                                                                                                                                  |
+| Strict TypeScript and production build (`npm run build`)                        | Passed                                                                                                                                                                                                                                                  |
+| Production preview smoke: worker calculation and XLSX import/export             | Passed; no browser errors                                                                                                                                                                                                                               |
+| Numerical, workbook, search, registry, input, and dependency tests (`npm test`) | 4,044 passed across 12 suites                                                                                                                                                                                                                           |
+| Chromium browser acceptance (`npm run test:e2e`)                                | 27 distinct checks passed across full catalogue and targeted final-release runs; no page or browser console errors                                                                                                                                      |
+| Portable HTML (`npm run test:standalone`)                                       | 27 distinct checks passed across full catalogue and targeted final-release runs, offline using the exact HTML contents; no external asset requests. Direct file navigation is blocked by cloud browser policy; see [standalone details](STANDALONE.md). |
+| Required-function expected-result examples (`npm run coverage:report`)          | 261/261 passed                                                                                                                                                                                                                                          |
+| Ready-made workflows                                                            | 40 implemented; expected examples and business-rule/error tests passed                                                                                                                                                                                  |
+
+The [formula audit](FORMULA_AUDIT.md) adds 1,920 independent numerical reference cases, frozen-source checks for all 301 tasks, scalar error-propagation checks, and regressions for the defects found during the audit. The fixture values were generated with independent Python numerical libraries; normal tests require only Node.js.
 
 The beginner-help suite checks coverage of all 301 registered tasks, required example settings, rate/header/lookup instructions, and the actual cell ranges and expected answers of the three AVERAGE lessons. Scalar cell-inspection and error-replacement functions apply selected lists per cell, matching their guide instructions.
 
@@ -37,6 +39,12 @@ Browser acceptance covers:
 18. Lookup worked-example loading, input-level loan instructions, and closing the guide with Escape.
 19. Cell checks over a selected column return the correct result for each record, including blank versus zero.
 20. The guide fits a phone viewport, highlights a selected row and loads a working practice calculation.
+
+21–25. Every one of the 301 formula/workflow examples is selected, loaded and calculated through the actual task picker, form, worker and result panel, in five batches.
+
+26. Corrected tiny probabilities remain nonzero on screen, copying preserves the full numeric value, quoted TEXT masks preserve literals, and visual MAP rounding handles positive and negative decimal midpoints.
+
+27. SUBTOTAL and AGGREGATE correctly exclude every selected cell in a hidden row of a multi-column worksheet range.
 
 The guide was also visually inspected on desktop and phone viewports. All guides are embedded in the portable HTML.
 
