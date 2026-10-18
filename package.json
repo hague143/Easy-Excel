@@ -13,6 +13,7 @@
     "test:e2e": "playwright test",
     "test:standalone": "tsx scripts/test-standalone.ts",
     "coverage:report": "tsx scripts/coverage.ts",
+    "samples:export": "tsx scripts/create-test-data.ts",
     "format": "prettier --write src tests scripts *.ts *.json *.html"
   },
   "dependencies": {
@@ -33,6 +34,7 @@
     "@types/react": "^19.0.0",
     "@types/react-dom": "^19.0.0",
     "@vitejs/plugin-react": "^4.3.4",
+    "jszip": "3.10.2",
     "prettier": "^3.9.10",
     "tsx": "^4.19.0",
     "typescript": "~5.7.2",

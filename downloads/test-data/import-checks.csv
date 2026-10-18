@@ -1,0 +1,5 @@
+"Identifier","Amount","Note","Active"
+"00001","0","Numeric zero","true"
+"00002",,"Blank amount","false"
+"9007199254740993","not-a-number","Invalid numeric text; keep identifier exact","true"
+"00004","12.5","","false"

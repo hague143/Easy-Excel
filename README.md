@@ -4,6 +4,8 @@ A private, formula-free spreadsheet workspace built with React, TypeScript, and 
 
 **Download the ready-to-open app:** [SheetPilot HTML](https://github.com/hague143/Easy-Excel/raw/refs/heads/main/downloads/SheetPilot.html) · [HTML ZIP](https://github.com/hague143/Easy-Excel/raw/refs/heads/main/downloads/SheetPilot-HTML.zip). Extract the ZIP and open `SheetPilot.html` in Chrome or Edge. See [download instructions](downloads/README.md).
 
+**Dummy data to test it:** [Excel workbook with 14 worksheets](https://github.com/hague143/Easy-Excel/raw/refs/heads/main/downloads/test-data/SheetPilot-Test-Data.xlsx) · [All CSVs and workbook ZIP](https://github.com/hague143/Easy-Excel/raw/refs/heads/main/downloads/SheetPilot-Test-Data.zip) · [Expected results and testing guide](downloads/test-data/README.md).
+
 ## Run
 
 Use Node.js 22 or newer (validated with Node 24).
