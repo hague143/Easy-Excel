@@ -6,6 +6,14 @@ A private, formula-free spreadsheet workspace built with React, TypeScript, and 
 
 **Dummy data to test it:** [Excel workbook with 14 worksheets](https://github.com/hague143/Easy-Excel/raw/refs/heads/main/downloads/test-data/SheetPilot-Test-Data.xlsx) · [All CSVs and workbook ZIP](https://github.com/hague143/Easy-Excel/raw/refs/heads/main/downloads/SheetPilot-Test-Data.zip) · [Expected results and testing guide](downloads/test-data/README.md).
 
+## New to Excel? Start with the guide
+
+Select any calculation and choose **Step-by-step guide**. All 261 formulas and 40 workflows explain their purpose, how to select data, every input, a loadable worked example, the expected answer, and how to interpret the result. Each input also has **How to fill in…** help beside it.
+
+For **AVERAGE**, the interactive lesson highlights a column, one row, or a block of cells and explains why the answers differ. **Load this selection example** adds a practice worksheet with the exact range already connected; press **Calculate** to check it. Your existing worksheets remain available.
+
+**Column** means one field across records. **Range** means particular cells: click the first cell, Shift-click the last, then choose **Use selected cells**. A range such as `B2:D2` is one row; `B2:B10` is a column; `B2:D10` is a block. Row 1 contains headers. The guide explains when a task needs headers and when it needs aligned input columns.
+
 ## Run
 
 Use Node.js 22 or newer (validated with Node 24).
@@ -22,12 +30,12 @@ The development server listens on port 5173. For a production build, use `npm ru
 
 `npm run build:standalone` creates `SheetPilot.html` in the checkout's parent directory. Download that single file and open it in a current Chrome or Edge browser. Application code, fonts, styles, XLSX support, and workers are embedded; no development server, installation, or network connection is needed. Browser or organization policies may restrict opening local HTML files. Save a downloaded project for portable backups because browser-local storage can depend on the file's location.
 
-Run `npm run test:standalone` to exercise the same 16 acceptance workflows with networking disabled. The managed cloud browser blocks `file://` navigation, so this test supplies the exact file contents as one intercepted loopback document; it starts no server and rejects requests for additional assets. This verifies the self-contained edition without claiming a direct `file://` browser test succeeded. See [standalone build details](docs/STANDALONE.md).
+Run `npm run test:standalone` to exercise the same 20 acceptance workflows with networking disabled. The managed cloud browser blocks `file://` navigation, so this test supplies the exact file contents as one intercepted loopback document; it starts no server and rejects requests for additional assets. This verifies the self-contained edition without claiming a direct `file://` browser test succeeded. See [standalone build details](docs/STANDALONE.md).
 
 ## Use
 
 1. Start with **Sales overview**, choose **Sample data**, import a CSV/XLSX file, or add a blank worksheet. Double-click cells to edit; paste tab-separated rows directly from Excel or Google Sheets.
-2. Search **Function library** using a function, category, English description, or Roman Urdu term such as *jama*, *ausat*, *hazri*, *tankhwa*, or *qist*.
+2. Search **Function library** using a function, category, English description, or Roman Urdu term such as _jama_, _ausat_, _hazri_, _tankhwa_, or _qist_.
 3. Select columns, ranges, values, tables, or previous results. Confirm every business rule. **Try with example values** loads explicit synthetic inputs; it never silently supplies an institutional grading or overtime policy.
 4. Click **Calculate**. View the result, source, settings, errors, timing, and compatibility notes. Copy or export the result, create a new worksheet, or append calculated columns in result row order.
 5. **Save project** explicitly saves to this browser. **Export → Full SheetPilot project** downloads a portable `.sheetpilot.json` containing worksheets, types, settings, history, and operations. Use **Open a saved project** to restore it.
@@ -49,7 +57,7 @@ Playwright uses `/usr/bin/chromium` when available. Otherwise install its browse
 
 All **261 unique functions** from the supplied specification are registered, with **40 ready-made workflows**. Each required function has an explicitly stated expected-result example and test references. See [function coverage](docs/FUNCTION_COVERAGE.md), [compatibility limits](docs/COMPATIBILITY.md), and the [architecture](docs/ARCHITECTURE.md). Passing examples and edge tests establish the tested behavior; they do not certify every behavior of Microsoft Excel.
 
-The [validation report](docs/VALIDATION.md) records 1,252 passing automated checks and 16 passing browser acceptance tests.
+The [validation report](docs/VALIDATION.md) records 1,560 passing automated checks and 20 passing browser acceptance tests.
 
 The browser suite covers the ten requested acceptance workflows, responsive navigation, clean startup, IF comparison configuration, visual LET editing, and pipeline dependencies/cycles. Numerical expected values include published financial examples and independently established statistical values; implementations are never used to manufacture their own expected answers.
 

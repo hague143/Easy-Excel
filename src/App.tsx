@@ -51,6 +51,10 @@ import type { SavedOperation } from './engine/bindings';
 import { Grid, displayCell } from './components/Grid';
 import type { Selection } from './components/Grid';
 import { defaultArgs, InputForm } from './components/InputForm';
+import { GuidePrompt, TaskGuide } from './components/TaskGuide';
+import { functionGuide, isCellInput } from './help/guides';
+import { averageExampleSheet, averageSelections } from './help/selection-example';
+import type { AverageSelection } from './help/selection-example';
 import { ImportModal } from './components/ImportModal';
 import { ResultPanel } from './components/ResultPanel';
 import { SAMPLE_DATASETS, createSampleWorkbook } from './workbook/samples';
@@ -136,6 +140,7 @@ export default function App() {
     [filterText, setFilterText] = useState(''),
     [sidebarOpen, setSidebarOpen] = useState(false),
     [showAdvanced, setShowAdvanced] = useState(false),
+    [showTaskGuide, setShowTaskGuide] = useState(false),
     [historyFocus, setHistoryFocus] = useState<string | null>(null);
   const upload = useRef<HTMLInputElement>(null),
     openProject = useRef<HTMLInputElement>(null),
@@ -254,6 +259,18 @@ export default function App() {
         : 'Example values loaded. Click Calculate to test this task.',
     );
   }
+  function loadSelectionExample(mode: AverageSelection) {
+    const id = crypto.randomUUID();
+    const practice = averageExampleSheet(id, uniqueSheetName('AVERAGE practice', workbook));
+    changeWorkbook({ ...workbook, sheets: [...workbook.sheets, practice] });
+    setSheetId(id);
+    setSelection(averageSelections[mode].selection);
+    setArgs({ data: { __source: 'range', sheetId: id, range: averageSelections[mode].range } });
+    setResult(null);
+    setError('');
+    setShowTaskGuide(false);
+    setToast('Practice selection loaded. Press Calculate to see the average.');
+  }
   function getProject(): AppProject {
     return {
       version: 1,
@@ -316,11 +333,7 @@ export default function App() {
       const fn = registry.get(name)!;
       const resolved = resolveBindings(sourceArgs, workbook, previousHistory);
       const rowKeys = fn.inputs
-        .filter(
-          (i) =>
-            !['data', 'matrix', 'conditions', 'operations'].includes(i.type) &&
-            Array.isArray(resolved[i.key]),
-        )
+        .filter((i) => isCellInput(fn, i) && Array.isArray(resolved[i.key]))
         .map((i) => i.key);
       if (rowKeys.length) resolved.__rowWise = rowKeys;
       const calculation = await calculateAsync(name, resolved, { workbook, sheetId: sheet.id });
@@ -1030,7 +1043,8 @@ export default function App() {
                         Change
                       </button>
                     </div>
-                    <p>{def.description}</p>
+                    <p>{functionGuide(def).purpose}</p>
+                    <GuidePrompt def={def} onOpen={() => setShowTaskGuide(true)} />
                   </div>
                   <div className="task-settings">
                     <div className="task-section-title">
@@ -1410,6 +1424,18 @@ export default function App() {
             </div>
           </section>
         </div>
+      )}
+      {showTaskGuide && (
+        <TaskGuide
+          key={def.name}
+          def={def}
+          onClose={() => setShowTaskGuide(false)}
+          onExample={() => {
+            loadExample();
+            setShowTaskGuide(false);
+          }}
+          onSelectionExample={loadSelectionExample}
+        />
       )}
       {showHelp && (
         <div className="modal-backdrop">

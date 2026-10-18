@@ -5,6 +5,7 @@ import type { Binding } from '../engine/bindings';
 import { colLetter, parseLiteral } from '../engine/bindings';
 import type { Selection } from './Grid';
 import { ComparisonInput } from './ComparisonInput';
+import { inputGuidance, sourceHelp } from '../help/guides';
 
 const literalText = (value: any) =>
   value === undefined || value === null
@@ -94,7 +95,10 @@ export function InputForm({
             selection={selection}
             example={def.example.args[input.key]}
           />
-          {input.description && <small className="field-help">{input.description}</small>}
+          <details className="input-instructions">
+            <summary>How to fill in {input.label}</summary>
+            <p>{inputGuidance(def, input)}</p>
+          </details>
           {index === 0 && (input.type === 'data' || input.type === 'matrix') && (
             <small className="field-help">
               <Table2 size={11} /> Your original data stays intact
@@ -405,6 +409,7 @@ function SourceField(p: FieldProps) {
           </button>
         ))}
       </div>
+      <small className="source-mode-help">{sourceHelp[mode]}</small>
       {['column', 'range', 'table'].includes(mode) && (
         <select
           aria-label={`${input.label} dataset`}

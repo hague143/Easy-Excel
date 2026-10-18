@@ -419,3 +419,86 @@ test('saved operations form an ordered pipeline and reject circular dependencies
   await page.getByRole('button', { name: 'Run pipeline', exact: true }).click();
   await expect(page.locator('.inline-error')).toContainText('Circular calculation dependency');
 });
+
+test('AVERAGE beginner guide teaches and loads column, row and block selections', async ({
+  page,
+}) => {
+  await task(page, 'AVERAGE');
+  for (const item of [
+    { label: 'A whole column', range: 'B2:B3', answer: '55' },
+    { label: 'One row', range: 'B2:D2', answer: '80' },
+    { label: 'A block of cells', range: 'B2:D3', answer: '75' },
+  ]) {
+    await page.getByRole('button', { name: 'Step-by-step guide for AVERAGE' }).click();
+    const guide = page.getByRole('dialog', { name: 'How to use AVERAGE', exact: true });
+    await expect(
+      guide.getByRole('heading', { name: 'How to choose rows and columns' }),
+    ).toBeVisible();
+    await guide.getByRole('button', { name: item.label, exact: true }).click();
+    await expect(guide.locator('.lesson-answer')).toContainText(
+      `${item.range} → Average ${item.answer}`,
+    );
+    await guide.getByRole('button', { name: 'Load this selection example' }).click();
+    await expect(guide).toBeHidden();
+    await expect(page.locator('#field-data')).toHaveValue(item.range);
+    await calculate(page);
+    await expect(result(page).locator('.scalar-result')).toHaveText(`${item.answer}Result`);
+  }
+  await expect(page.locator('.worksheet-tabs')).toContainText('AVERAGE practice (3)');
+  await expect(page.locator('.worksheet-tabs')).toContainText('Sales overview');
+});
+
+test('lookup and loan guides explain inputs and load the actual worked example', async ({
+  page,
+}) => {
+  await task(page, 'XLOOKUP');
+  await page.getByRole('button', { name: 'Step-by-step guide for XLOOKUP' }).click();
+  const lookup = page.getByRole('dialog', { name: 'How to use XLOOKUP', exact: true });
+  await expect(lookup).toContainText('same reference records');
+  await expect(lookup).toContainText('Duplicate policy');
+  await lookup.getByRole('button', { name: 'Load worked example', exact: true }).click();
+  await calculate(page);
+  await expect(result(page)).toContainText('Bilal');
+  await expect(result(page)).toContainText('180');
+  await task(page, 'WF.LOAN');
+  await page
+    .locator('.input-instructions')
+    .filter({ hasText: 'How to fill in Total number of payments' })
+    .locator('summary')
+    .click();
+  await expect(page.locator('.input-instructions[open]')).toContainText('60, not 5');
+  await page.getByRole('button', { name: 'Step-by-step guide for LOAN' }).click();
+  const loan = page.getByRole('dialog', { name: 'How to use LOAN', exact: true });
+  await expect(loan).toContainText('12 for 12%');
+  await expect(loan).toContainText('payments per year');
+  await page.keyboard.press('Escape');
+  await expect(loan).toBeHidden();
+});
+
+test('a cell-check column follows its beginner instructions for one result per cell', async ({
+  page,
+}) => {
+  const preview = await uploadCSV(page, 'blank-check.csv', 'ID,Value\nA,10\nB,\nC,0');
+  await preview.getByRole('button', { name: 'Import data', exact: true }).click();
+  await task(page, 'ISBLANK');
+  await column(page, 'value', 'Value');
+  await calculate(page);
+  await expect(result(page).getByRole('cell', { name: 'TRUE', exact: true })).toHaveCount(1);
+  await expect(result(page).getByRole('cell', { name: 'FALSE', exact: true })).toHaveCount(2);
+});
+
+test('beginner guide remains readable and usable on a phone', async ({ page }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
+  await task(page, 'AVERAGE');
+  await page.getByRole('button', { name: 'Step-by-step guide for AVERAGE' }).click();
+  const guide = page.getByRole('dialog', { name: 'How to use AVERAGE', exact: true });
+  const box = await guide.boundingBox();
+  expect(box!.x).toBeGreaterThanOrEqual(0);
+  expect(box!.x + box!.width).toBeLessThanOrEqual(390);
+  expect(box!.height).toBeLessThanOrEqual(844);
+  await guide.getByRole('button', { name: 'One row', exact: true }).click();
+  await expect(guide.locator('.lesson-table td.lesson-selected')).toHaveCount(3);
+  await guide.getByRole('button', { name: 'Load this selection example' }).click();
+  await calculate(page);
+  await expect(result(page).locator('.scalar-result')).toHaveText('80Result');
+});

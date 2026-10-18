@@ -3459,3 +3459,266 @@ svg {
     transition: none !important;
   }
 }
+
+/* Beginner help stays beside the selected task and every input. */
+.guide-prompt {
+  display: flex;
+  align-items: flex-start;
+  gap: 10px;
+  margin-top: 16px;
+  padding: 13px;
+  border: 1px solid #c7e2d9;
+  border-radius: 10px;
+  background: #eef8f3;
+  color: #205a4c;
+}
+.guide-prompt > svg {
+  flex-shrink: 0;
+  margin-top: 2px;
+}
+.guide-prompt strong {
+  font-size: 12px;
+}
+.selected-task .guide-prompt p {
+  margin: 5px 0 8px;
+  font-size: 12px;
+  line-height: 1.6;
+  color: #3d6358;
+}
+.guide-prompt button {
+  padding: 0;
+  background: none;
+  text-align: left;
+  color: #17644f;
+  font-size: 12px;
+  font-weight: 700;
+  text-decoration: underline;
+  text-underline-offset: 3px;
+}
+.input-instructions {
+  font-size: 12px;
+  line-height: 1.7;
+  margin-top: 7px;
+  color: #456257;
+}
+.input-instructions summary {
+  cursor: pointer;
+  color: #17644f;
+}
+.input-instructions p {
+  padding: 9px 11px;
+  background: #f1f7f3;
+  border-radius: 6px;
+  margin: 6px 0;
+}
+.source-mode-help {
+  display: block;
+  font-size: 11px;
+  line-height: 1.6;
+  color: #52665e;
+  margin: 6px 0 9px;
+}
+.guide-backdrop {
+  z-index: 160;
+}
+.task-guide-modal {
+  width: min(850px, calc(100vw - 32px));
+  max-height: calc(100dvh - 40px);
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+}
+.task-guide-header {
+  padding: 24px 28px 18px;
+  display: flex;
+  justify-content: space-between;
+  gap: 16px;
+  border-bottom: 1px solid #e0e8e2;
+}
+.task-guide-header h2 {
+  margin: 8px 0 5px;
+  font-size: 25px;
+  overflow-wrap: anywhere;
+}
+.task-guide-header p {
+  margin: 0;
+  color: #607068;
+}
+.task-guide-header .icon-button {
+  flex-shrink: 0;
+}
+.task-guide-body {
+  overflow-y: auto;
+  padding: 24px 28px;
+  font-size: 14px;
+  line-height: 1.75;
+  color: #354e43;
+}
+.task-guide-body section + section {
+  margin-top: 27px;
+  padding-top: 24px;
+  border-top: 1px solid #e0e8e2;
+}
+.task-guide-body h3 {
+  font-size: 17px;
+  color: #163e2e;
+  margin: 0 0 12px;
+}
+.task-guide-body h4 {
+  margin: 0 0 7px;
+  color: #234b38;
+  font-size: 14px;
+}
+.task-guide-body h4 span {
+  color: #66766e;
+  font-size: 11px;
+  font-weight: 400;
+  display: inline-block;
+  margin-left: 8px;
+}
+.task-guide-body p {
+  margin: 8px 0 12px;
+}
+.task-guide-body ol,
+.task-guide-body ul {
+  padding-left: 24px;
+}
+.task-guide-body li {
+  padding-left: 5px;
+  margin-bottom: 10px;
+}
+.task-guide-body summary {
+  cursor: pointer;
+  font-weight: 600;
+  color: #17644f;
+}
+.guide-input-list {
+  display: grid;
+  gap: 14px;
+}
+.guide-input-list article {
+  padding: 16px;
+  border: 1px solid #dae5dd;
+  border-radius: 10px;
+}
+.guide-worked-input > strong,
+.guide-expected > strong {
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+  color: #61776a;
+  display: block;
+}
+.guide-example-value {
+  display: block;
+  overflow-wrap: anywhere;
+  font-size: 13px;
+  margin-top: 5px;
+  white-space: pre-wrap;
+}
+.guide-table-scroll {
+  max-width: 100%;
+  overflow-x: auto;
+  margin: 10px 0;
+}
+.guide-value-table,
+.lesson-table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 13px;
+}
+.guide-value-table td,
+.lesson-table td,
+.lesson-table th {
+  border: 1px solid #cfded3;
+  padding: 8px 12px;
+  text-align: left;
+  min-width: 45px;
+}
+.lesson-table th {
+  background: #edf3ed;
+  font-size: 12px;
+  white-space: nowrap;
+}
+.lesson-table td.lesson-selected {
+  background: #d0efdf;
+  color: #124d38;
+  font-weight: 700;
+  box-shadow: inset 0 0 0 1px #59a586;
+}
+.lesson-choices {
+  display: flex;
+  gap: 7px;
+  flex-wrap: wrap;
+  margin: 15px 0;
+}
+.lesson-choices button {
+  border: 1px solid #ccdcd0;
+  border-radius: 6px;
+  background: #fff;
+  color: #345442;
+  padding: 9px 12px;
+  font-size: 12px;
+}
+.lesson-choices button[aria-pressed='true'] {
+  background: #1d684e;
+  color: #fff;
+  border-color: #1d684e;
+}
+.lesson-answer {
+  border-radius: 8px;
+  background: #edf7f0;
+  padding: 12px 16px;
+  margin: 12px 0;
+}
+.lesson-answer p {
+  margin-bottom: 0;
+}
+.selection-lesson > small {
+  display: block;
+  margin-top: 8px;
+  color: #64756b;
+}
+.guide-expected {
+  margin: 12px 0 16px;
+  padding: 12px 16px;
+  border-radius: 8px;
+  background: #f3f6f1;
+}
+.task-guide-footer {
+  border-top: 1px solid #e0e8e2;
+  padding: 15px 28px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px;
+}
+.task-guide-footer > span {
+  font-size: 11px;
+  color: #64756b;
+}
+@media (max-width: 600px) {
+  .task-guide-modal {
+    width: calc(100vw - 20px);
+    max-height: calc(100dvh - 20px);
+  }
+  .task-guide-header,
+  .task-guide-body {
+    padding: 18px;
+  }
+  .task-guide-header h2 {
+    font-size: 21px;
+  }
+  .task-guide-footer {
+    padding: 12px 18px;
+    flex-wrap: wrap;
+  }
+  .task-guide-footer .button {
+    width: 100%;
+    justify-content: center;
+  }
+  .task-guide-body {
+    font-size: 13px;
+  }
+}

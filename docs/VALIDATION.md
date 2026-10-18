@@ -2,16 +2,18 @@
 
 Validated in the supplied cloud workspace with Node.js 24.19.0, npm 11.9.0, and Chromium 154.0.8037.57.
 
-| Check | Result |
-| --- | --- |
-| Frozen installation (`npm ci --cache /workspace/.npm --no-audit --no-fund`) | Passed |
-| Strict TypeScript and production build (`npm run build`) | Passed |
-| Production preview smoke: worker calculation and XLSX import/export | Passed; no browser errors |
-| Numerical, workbook, search, registry, input, and dependency tests (`npm test`) | 1,252 passed across 9 suites |
-| Chromium browser acceptance (`npm run test:e2e`) | 16 passed; no page or browser console errors |
-| Portable HTML (`npm run test:standalone`) | 16 passed offline using the exact HTML contents; no external asset requests. Direct file navigation is blocked by cloud browser policy; see [standalone details](STANDALONE.md). |
-| Required-function expected-result examples (`npm run coverage:report`) | 261/261 passed |
-| Ready-made workflows | 40 implemented; expected examples and business-rule/error tests passed |
+| Check                                                                           | Result                                                                                                                                                                           |
+| ------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| Frozen installation (`npm ci --cache /workspace/.npm --no-audit --no-fund`)     | Passed                                                                                                                                                                           |
+| Strict TypeScript and production build (`npm run build`)                        | Passed                                                                                                                                                                           |
+| Production preview smoke: worker calculation and XLSX import/export             | Passed; no browser errors                                                                                                                                                        |
+| Numerical, workbook, search, registry, input, and dependency tests (`npm test`) | 1,560 passed across 10 suites                                                                                                                                                    |
+| Chromium browser acceptance (`npm run test:e2e`)                                | 20 passed; no page or browser console errors                                                                                                                                     |
+| Portable HTML (`npm run test:standalone`)                                       | 20 passed offline using the exact HTML contents; no external asset requests. Direct file navigation is blocked by cloud browser policy; see [standalone details](STANDALONE.md). |
+| Required-function expected-result examples (`npm run coverage:report`)          | 261/261 passed                                                                                                                                                                   |
+| Ready-made workflows                                                            | 40 implemented; expected examples and business-rule/error tests passed                                                                                                           |
+
+The beginner-help suite checks coverage of all 301 registered tasks, required example settings, rate/header/lookup instructions, and the actual cell ranges and expected answers of the three AVERAGE lessons. Scalar cell-inspection and error-replacement functions apply selected lists per cell, matching their guide instructions.
 
 Browser acceptance covers:
 
@@ -31,6 +33,12 @@ Browser acceptance covers:
 14. Formula-free IF column comparison.
 15. Visual LET named values and operations.
 16. Saved-operation pipelines and circular-dependency rejection.
+17. AVERAGE guide loads column, row and block examples and calculates 55, 80 and 75 while preserving earlier worksheets.
+18. Lookup worked-example loading, input-level loan instructions, and closing the guide with Escape.
+19. Cell checks over a selected column return the correct result for each record, including blank versus zero.
+20. The guide fits a phone viewport, highlights a selected row and loads a working practice calculation.
+
+The guide was also visually inspected on desktop and phone viewports. All guides are embedded in the portable HTML.
 
 The numerical suites include error propagation, blank versus empty text, identifiers, negative/midpoint rounding, criteria/wildcard escaping, exact/approximate lookup, date serials/leap/month-end rules, holidays, hidden/filtered rows, sample/population statistics, distribution tails, singular matrices, cash-flow signs, financial day-count bases, and invalid/non-convergent schedules. Expected values are stated independently; the implementation does not generate its own expectations.
 
